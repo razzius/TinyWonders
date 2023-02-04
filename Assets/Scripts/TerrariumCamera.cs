@@ -16,10 +16,6 @@ public class TerrariumCamera : MonoBehaviour
         SetOffset();
     }
 
-    void Update()
-    {
-    }
-
     /// <summary>
     /// Based on the size of the target, set the offset of the virtual camera.
     /// </summary>

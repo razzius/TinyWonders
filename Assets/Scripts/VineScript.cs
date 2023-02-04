@@ -13,6 +13,9 @@ public class VineScript : MonoBehaviour
     public bool fullyGrown = false;
     public bool isRootStem = false;
 
+    public Transform EndPoint;
+    public VineScript VinePrefab;
+
     public void Initialize(VineScript parent)
     {
         CurrentZScale = 0f;
@@ -23,7 +26,7 @@ public class VineScript : MonoBehaviour
         transform.localScale = new Vector3(1, 1, CurrentZScale);
 
     }
-    
+
     void Start()
      {
         if(isRootStem) 
@@ -42,15 +45,30 @@ public class VineScript : MonoBehaviour
     {
         // how fast the vine grows
         CurrentZScale += GrowthRate * Time.deltaTime;
+        if(CurrentZScale >= targetLength)
+        {
+            CurrentZScale = targetLength;
+            transform.localScale = new Vector3(1, 1, targetLength);
+            OnFullyGrown();
+            return;
+        }
+
+
+
+        transform.localScale = new Vector3(1, 1, CurrentZScale);
 
 
     }
 
     void OnFullyGrown()
     {
+
         // clamp the vine 
         fullyGrown = true;
-        
+        VineScript newChildVine = Instantiate(VinePrefab, EndPoint.position, Quaternion.identity);
+        newChildVine.Initialize(this);
+
+
     }
   
 }

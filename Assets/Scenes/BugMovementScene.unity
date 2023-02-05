@@ -772,6 +772,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -91.236, z: 0}
+--- !u!1 &1319991902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9019988511329024062, guid: 64b06837b0b7a814489c29ea9756637a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8208942900645289260}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1319991909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319991902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610c187887f84dc8a5426d99162ca101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
 --- !u!1 &1710494850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,10 +1104,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8208942900627988903, guid: 64b06837b0b7a814489c29ea9756637a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208942900627988906, guid: 64b06837b0b7a814489c29ea9756637a,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8208942900627988906, guid: 64b06837b0b7a814489c29ea9756637a,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8531717024566387332, guid: 64b06837b0b7a814489c29ea9756637a,
         type: 3}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531717024566387332, guid: 64b06837b0b7a814489c29ea9756637a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531717024566387332, guid: 64b06837b0b7a814489c29ea9756637a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8531717024566387332, guid: 64b06837b0b7a814489c29ea9756637a,
         type: 3}
@@ -1145,7 +1189,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buggy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8208942900627988907, guid: 64b06837b0b7a814489c29ea9756637a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 64b06837b0b7a814489c29ea9756637a, type: 3}
 --- !u!4 &8302863052207862622
 Transform:

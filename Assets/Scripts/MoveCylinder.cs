@@ -27,7 +27,7 @@ public class MoveCylinder : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        ActivateCutters(false);
+        ActivateCutters(false, false);
         yRotation = transform.localRotation.eulerAngles.y;
     }
     // Update is called once per frame
@@ -57,14 +57,14 @@ public class MoveCylinder : MonoBehaviour
             yield return null;
         }
 
-        ActivateCutters(false);
+        ActivateCutters(false, false);
     } 
 
-    private void ActivateCutters(bool activate)
+    private void ActivateCutters(bool activate, bool pressedThisFrame)
     {
         if (activate)
         {
-            if (isCutting)
+            if (isCutting || !pressedThisFrame)
             {
                 return;
             }
@@ -93,11 +93,11 @@ public class MoveCylinder : MonoBehaviour
         // Cutter Activation
         if (Input.GetKey(KeyCode.Space))
         {
-            ActivateCutters(true);
+            ActivateCutters(true, Input.GetKeyDown(KeyCode.Space));
         }
         else
         {
-            ActivateCutters(false);
+            ActivateCutters(false, false);
         }
 
         // Mandible Rotation

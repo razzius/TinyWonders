@@ -102,7 +102,6 @@ public class MoveCylinder : MonoBehaviour
 
         // Mandible Rotation
         float leftMandibleTargetYRotation = isCutting ? leftMandibleClosedYRotation : leftMandibleOpenYRotation;
-        print($"Current left Y rot: {leftCutter.transform.localRotation.y} - Target Y Rot: {leftMandibleTargetYRotation}");
         float newLeftMandibleYRotation = Mathf.SmoothDampAngle(leftCutter.transform.localEulerAngles.y, leftMandibleTargetYRotation, ref leftCutterCurrentRotationVelocity, cutSmoothTime);
         leftCutter.transform.localRotation = Quaternion.Euler(0, newLeftMandibleYRotation, 0);
 

@@ -125,21 +125,22 @@ public class VineScript : MonoBehaviour
 
     void OnCut()
     {
-        GetComponent<FixedJoint>().breakForce = 0f;
+        if (GetComponent<FixedJoint>() != null) GetComponent<FixedJoint>().breakForce = 0f;
         OnBranchBreak();
+        Destroy(gameObject);
     }
 
     public void OnBranchBreak()
     {
         // Debug.Log("Bronken");
-        GetComponent<Rigidbody>().isKinematic = false;
-        GetComponent<FixedJoint>().breakForce = 0f;
+        if (GetComponent<Rigidbody>() != null) GetComponent<Rigidbody>().isKinematic = false;
+        //GetComponent<FixedJoint>().breakForce = 0f;
         // if (MarkedForDeath) return;
         // MarkedForDeath = true;
         // DeathSecondsLeft = DeathSeconds;
-        print(ChildVineScripts.Count);
         foreach (VineScript childVine in ChildVineScripts)
         {
+            if (childVine != null)
             childVine.OnBranchBreak();
         }
     }

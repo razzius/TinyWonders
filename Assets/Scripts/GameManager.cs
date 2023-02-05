@@ -6,8 +6,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject startCamera;
+    public GameObject startUi;
+    public GameObject gameUi;
     
     private static GameManager instance;
+
+    private bool currentlyPlaying = false;
     void Start()
     {
         if (instance == null)
@@ -23,9 +27,30 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Submit"))
+        if (!currentlyPlaying)
         {
-            startCamera.SetActive(!startCamera.activeSelf);
+            if (Input.GetButtonDown("Submit"))
+            {
+                startCamera.SetActive(false);
+                startUi.SetActive(false);
+                gameUi.SetActive(true);
+                currentlyPlaying = true;
+            }
+            
+            if (Input.GetButtonDown("Cancel"))
+            {
+                Application.Quit();
+            }
+        }
+        else
+        {
+            if (Input.GetButtonDown("Cancel"))
+            {
+                startCamera.SetActive(true);
+                startUi.SetActive(true);
+                gameUi.SetActive(false);
+                currentlyPlaying = false;
+            }
         }
     }
 }

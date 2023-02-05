@@ -79,12 +79,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'WASD Keys - Move the beetle.
+  m_Text: 'WASD Keys - Move the beetle
 
-    Space - Chomp.
+    Space - Chomp
 
     Arrow Keys - Move
-    the camera.'
+    the camera
+
+    Shift - Switch View'
 --- !u!1 &204229808
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &374930080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -219,7 +221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1168392108
 RectTransform:
   m_ObjectHideFlags: 0

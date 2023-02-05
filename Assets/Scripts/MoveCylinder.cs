@@ -46,8 +46,8 @@ public class MoveCylinder : MonoBehaviour
     private void Update()
      {
          Vector3 movDir;
- 
-         transform.Rotate(0, Input.GetAxis("Horizontal") * 90 * Time.deltaTime, 0);
+        float yRotation = (Input.GetAxis("Horizontal") * 90 * Time.deltaTime) + transform.rotation.eulerAngles.y;
+         transform.rotation = Quaternion.Euler(0, yRotation, 0);
          movDir = transform.forward * Input.GetAxis("Vertical") * 6;
          rigidBody.velocity = movDir;
                     // Debug.Log("OK1111!");

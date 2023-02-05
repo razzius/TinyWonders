@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject startCamera;
     public GameObject startUi;
     public GameObject gameUi;
+    public AudioSource audioSource;
     
     private static GameManager instance;
 
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
                 startCamera.SetActive(false);
                 startUi.SetActive(false);
                 gameUi.SetActive(true);
+                audioSource.Play();
                 currentlyPlaying = true;
             }
             
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
                 startCamera.SetActive(true);
                 startUi.SetActive(true);
                 gameUi.SetActive(false);
+                audioSource.Stop();
                 currentlyPlaying = false;
             }
         }

@@ -17,7 +17,7 @@ public class SeedScript : MonoBehaviour
 
         RootVine.isRootStem = true;
 
-        RootVine.Initialize(this, null, MaxTreeHeight, 0);
+        RootVine.Initialize(this, null, Random.Range(8, 16), 0);
     }
 
     void Start()

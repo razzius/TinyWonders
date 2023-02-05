@@ -24,8 +24,6 @@ public class MoveCylinder : MonoBehaviour
     private float leftCutterCurrentRotationVelocity;
     private float rightCutterCurrentRotationVelocity;
 
-    public MeshRenderer debugger;
-
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -112,7 +110,5 @@ public class MoveCylinder : MonoBehaviour
         float newRightMandibleYRotation = Mathf.SmoothDampAngle(rightCutter.transform.localEulerAngles.y, rightMandibleTargetRotation, ref rightCutterCurrentRotationVelocity, cutSmoothTime);
         rightCutter.transform.localRotation = Quaternion.Euler(0, newRightMandibleYRotation, 0);
 
-        // Debug
-        debugger.enabled = leftCutter.isCutting;
      }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class MoveCylinder : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class MoveCylinder : MonoBehaviour
     public GameObject rightMandible2;
     public Camera _mainCamera;
     public Rigidbody rigidBody;
+    public Collider mandibleCollider;
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         startRotation = leftMandible2.transform.localRotation;
+        mandibleCollider.enabled = false;
     }
     // Update is called once per frame
     // void Update()
@@ -29,6 +33,16 @@ public class MoveCylinder : MonoBehaviour
 
 	// 	transform.position += moveDirection * Time.deltaTime * speed;
     // }
+    private IEnumerator SnipCoroutine() {
+        mandibleCollider.enabled = true;
+        yield return new WaitForSeconds(0.4f);
+        mandibleCollider.enabled = false;
+    } 
+
+    private void snip() {
+        StartCoroutine(SnipCoroutine());
+    }
+
     private void Update()
      {
          Vector3 movDir;
@@ -36,7 +50,11 @@ public class MoveCylinder : MonoBehaviour
          transform.Rotate(0, Input.GetAxis("Horizontal") * 90 * Time.deltaTime, 0);
          movDir = transform.forward * Input.GetAxis("Vertical") * 6;
          rigidBody.velocity = movDir;
-         
+                    // Debug.Log("OK1111!");
+         if (Input.GetKeyDown(KeyCode.Space)) {
+            // Debug.Log("OK!");
+            snip();
+         }
         if (Input.GetKey(KeyCode.Space)) {
             leftMandible2.transform.localEulerAngles = new Vector3(10.586f, -4.0f, -88.34f);
             rightMandible2.transform.localEulerAngles = new Vector3(0, 30, 0);

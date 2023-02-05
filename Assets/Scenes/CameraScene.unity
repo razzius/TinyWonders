@@ -757,7 +757,7 @@ MonoBehaviour:
     m_MaxSpeed: 100
     m_AccelTime: 0.5
     m_DecelTime: 0.1
-    m_InputAxisName: Horizontal
+    m_InputAxisName: Camera Horizontal
     m_InputAxisValue: 0
     m_InvertInput: 1
     m_MinValue: -180

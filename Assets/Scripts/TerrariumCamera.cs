@@ -23,10 +23,10 @@ public class TerrariumCamera : MonoBehaviour
     {
        var targetSize = virtualCamera.LookAt.GetComponent<Renderer>().bounds.size;
 
-       var offset = new Vector3(0f, 2 * targetSize.y, 0f);
+       var offset = new Vector3(0f, .7f * targetSize.y, 0f);
        if (OffsetOnXAxis)
        {
-           offset.x = 2f * targetSize.x;
+           offset.x = .9f * targetSize.x;
            if (!OffsetInPositiveDirection)
            {
                offset.x = -offset.x;
@@ -34,7 +34,7 @@ public class TerrariumCamera : MonoBehaviour
        }
        else
        {
-           offset.z = 2f * targetSize.z;
+           offset.z = .9f * targetSize.z;
            if (!OffsetInPositiveDirection)
            {
                offset.z = -offset.z;

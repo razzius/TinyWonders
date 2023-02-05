@@ -131,10 +131,9 @@ public class VineScript : MonoBehaviour
         }
     }
     private void OnCollisionEnter(Collision other) {
-        if(other.collider.TryGetComponent<Cutter>(out Cutter cutter)) 
+        if(other.collider.TryGetComponent<Cutter>(out Cutter cutter) && cutter.isCutting) 
         {
             OnCut();
-
         }
     }
 }

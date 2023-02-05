@@ -6,18 +6,31 @@ public class MoveCylinder : MonoBehaviour
     
 
     public float speed = 4f;
+    private float cutterActiveSeconds = 0.3f;
+    private float cutSmoothTime = 0.01f;
     private Quaternion startRotation;
-    public GameObject leftMandible2;
-    public GameObject rightMandible2;
     public Camera _mainCamera;
-    public Rigidbody rigidBody;
-    public Collider mandibleCollider;
+    private Rigidbody rigidBody;
+    public Cutter leftCutter;
+    public Cutter rightCutter;
+
+    private float leftMandibleClosedYRotation = -4f;
+    private float rightMandibleClosedYRotation = 7f;
+    private float leftMandibleOpenYRotation = 22f;
+    private float rightMandibleOpenYRotation = -22f;
+
+    private bool isCutting;
+    private float yRotation;
+    private float leftCutterCurrentRotationVelocity;
+    private float rightCutterCurrentRotationVelocity;
+
+    public MeshRenderer debugger;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        startRotation = leftMandible2.transform.localRotation;
-        mandibleCollider.enabled = false;
+        ActivateCutters(false);
+        yRotation = transform.localRotation.eulerAngles.y;
     }
     // Update is called once per frame
     // void Update()
@@ -33,37 +46,73 @@ public class MoveCylinder : MonoBehaviour
 
 	// 	transform.position += moveDirection * Time.deltaTime * speed;
     // }
-    private IEnumerator SnipCoroutine() {
-        mandibleCollider.enabled = true;
-        yield return new WaitForSeconds(0.4f);
-        mandibleCollider.enabled = false;
+    private IEnumerator CutCoroutine()
+    {
+
+        float cutStartTime = Time.time;
+        isCutting = true;
+        leftCutter.isCutting = true;
+        rightCutter.isCutting = true;
+        
+        while(Time.time < cutStartTime + cutterActiveSeconds && isCutting)
+        {
+            yield return null;
+        }
+
+        ActivateCutters(false);
     } 
 
-    private void snip() {
-        StartCoroutine(SnipCoroutine());
+    private void ActivateCutters(bool activate)
+    {
+        if (activate)
+        {
+            if (isCutting)
+            {
+                return;
+            }
+            else
+            {
+                StartCoroutine(CutCoroutine());
+            }
+        }
+        else
+        {
+            isCutting = false;
+            leftCutter.isCutting = false;
+            rightCutter.isCutting = false;
+        }
     }
 
     private void Update()
      {
+        // Movement
          Vector3 movDir;
-        float yRotation = (Input.GetAxis("Horizontal") * 90 * Time.deltaTime) + transform.rotation.eulerAngles.y;
-         transform.rotation = Quaternion.Euler(0, yRotation, 0);
+         yRotation += Input.GetAxis("Horizontal") * 90 * Time.deltaTime;
+         transform.localRotation = Quaternion.Euler(0, yRotation, 0);
          movDir = transform.forward * Input.GetAxis("Vertical") * 6;
          rigidBody.velocity = movDir;
-                    // Debug.Log("OK1111!");
-         if (Input.GetKeyDown(KeyCode.Space)) {
-            // Debug.Log("OK!");
-            snip();
-         }
-        if (Input.GetKey(KeyCode.Space)) {
-            leftMandible2.transform.localEulerAngles = new Vector3(10.586f, -4.0f, -88.34f);
-            rightMandible2.transform.localEulerAngles = new Vector3(0, 30, 0);
-        } else {
-            leftMandible2.transform.localEulerAngles = new Vector3(10.586f, 14.507f, -88.34f);
-            rightMandible2.transform.localEulerAngles = new Vector3(0, 0, 0);
+
+        // Cutter Activation
+        if (Input.GetKey(KeyCode.Space))
+        {
+            ActivateCutters(true);
         }
-        //  float _targetRotation = Mathf.Atan2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * Mathf.Rad2Deg +
-        //                           _mainCamera.transform.eulerAngles.y;
-         
+        else
+        {
+            ActivateCutters(false);
+        }
+
+        // Mandible Rotation
+        float leftMandibleTargetYRotation = isCutting ? leftMandibleClosedYRotation : leftMandibleOpenYRotation;
+        print($"Current left Y rot: {leftCutter.transform.localRotation.y} - Target Y Rot: {leftMandibleTargetYRotation}");
+        float newLeftMandibleYRotation = Mathf.SmoothDampAngle(leftCutter.transform.localEulerAngles.y, leftMandibleTargetYRotation, ref leftCutterCurrentRotationVelocity, cutSmoothTime);
+        leftCutter.transform.localRotation = Quaternion.Euler(0, newLeftMandibleYRotation, 0);
+
+        float rightMandibleTargetRotation = isCutting ? rightMandibleClosedYRotation : rightMandibleOpenYRotation;
+        float newRightMandibleYRotation = Mathf.SmoothDampAngle(rightCutter.transform.localEulerAngles.y, rightMandibleTargetRotation, ref rightCutterCurrentRotationVelocity, cutSmoothTime);
+        rightCutter.transform.localRotation = Quaternion.Euler(0, newRightMandibleYRotation, 0);
+
+        // Debug
+        debugger.enabled = leftCutter.isCutting;
      }
 }

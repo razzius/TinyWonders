@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Cutter : MonoBehaviour
 {
-
+    public bool isCutting;
 }

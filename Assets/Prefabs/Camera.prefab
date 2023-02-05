@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -86.5, y: 98.5}
+  m_AnchoredPosition: {x: 9, y: 68.1}
   m_SizeDelta: {x: 677.7, y: 104.228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &37420727
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.7019608, b: 0.4117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -81,7 +81,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'WASD Keys - Move the beetle.
 
-    Arrow Keys - Move the camera.'
+    Space - Chomp.
+
+    Arrow Keys - Move
+    the camera.'
 --- !u!1 &204229808
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 63.8, y: 86.96}
+  m_AnchoredPosition: {x: 20.7, y: 66.44}
   m_SizeDelta: {x: 677.7, y: 104.228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &204229811
@@ -141,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.88991684, b: 0.12641507, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -155,7 +158,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 9
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -274,7 +277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 88.400024, y: -174.9}
+  m_AnchoredPosition: {x: -10.5, y: -143}
   m_SizeDelta: {x: 677.7, y: 104.228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1418002112
@@ -298,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.7019608, b: 0.4117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -354,7 +357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -84.3, y: -87.1}
+  m_AnchoredPosition: {x: 7.8, y: -57.1}
   m_SizeDelta: {x: 677.7, y: 202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1688952894
@@ -378,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.70125616, b: 0.40943396, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -485,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -548,7 +551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 88.4, y: -163.2}
+  m_AnchoredPosition: {x: -7.5, y: -121}
   m_SizeDelta: {x: 677.7, y: 104.228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2105824405
@@ -572,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.7019608, b: 0.4117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -731,8 +734,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356320855223708103}
-  m_LocalRotation: {x: -0.050578136, y: 0.9483504, z: -0.19709048, w: -0.24336943}
-  m_LocalPosition: {x: 325.1371, y: 293.31842, z: 591.77045}
+  m_LocalRotation: {x: 0.26432163, y: 0.2669082, z: -0.07638444, w: 0.92361224}
+  m_LocalPosition: {x: -63, y: 72.8, z: -99.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -862,8 +865,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356320855981704939}
-  m_LocalRotation: {x: -0.050578136, y: 0.9483504, z: -0.19709048, w: -0.24336943}
-  m_LocalPosition: {x: 325.1371, y: 293.31842, z: 591.77045}
+  m_LocalRotation: {x: 0.26432163, y: 0.2669082, z: -0.07638444, w: 0.92361224}
+  m_LocalPosition: {x: -63, y: 72.8, z: -99.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
